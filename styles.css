@@ -26,7 +26,7 @@ html {
 		sans-serif,
 		'Apple Color Emoji',
 		'Segoe UI Emoji';
-	line-height: 1.15; /* 1. Correct the line height in all browsers. */
+	line-height: 1.5; /* 1. Correct the line height in all browsers. */
 	-webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
 	tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
 }
@@ -131,7 +131,7 @@ select,
 textarea {
 	font-family: inherit; /* 1 */
 	font-size: 100%; /* 1 */
-	line-height: 1.15; /* 1 */
+	line-height: 1.25; /* 1 */
 	margin: 0; /* 2 */
 }
 
@@ -223,6 +223,8 @@ ul {
 }
 
 body {
+    --white: #f8fafc;
+
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -239,7 +241,7 @@ body > nav {
 
     display: grid;
     /* grid-template-columns: 1fr; */
-    grid-auto-rows: min-content;
+    align-content: start;
     gap: 1rem;
 }
 
@@ -251,12 +253,52 @@ body > nav > * {
 
 header {
     grid-area: header;
-    background-color: white;
+    background-color: var(--white);
     padding: 1rem;
 
     display: grid;
-    grid-template-columns: [start]3fr 2fr[end];
+    grid-template-columns: [start]1fr max-content[end];
     grid-template-rows: 1fr 3fr;
+    gap: 1rem;
+}
+
+header .search {
+    padding: .4rem;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    /* justify-content: start; */
+    gap: .8rem;
+    align-items: center;
+}
+
+svg {
+    width: 1.5rem;
+    vertical-align: -.3rem;
+}
+/* 
+header .search svg {
+    width: 1.5rem;
+} */
+
+header input[type="search"] {
+    padding: 0.4rem;
+    border-radius: 1rem;
+    border: none;
+
+}
+
+header input[type="search"]:focus-visible {
+    outline: none;
+    border: none;
+    box-shadow: inset 1px 1px 5px #e2e8f0;
+}
+
+header .account-wrapper ul {
+    padding: .4rem;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    gap: 1rem;
+    align-items: center;
 }
 
 header .options-container {
