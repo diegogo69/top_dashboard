@@ -357,8 +357,6 @@ header .options-container {
     border: 3px solid blue;
 }
 
-
-
 main {
     grid-area: main;
     background-color: red;
@@ -369,23 +367,44 @@ main {
 }
 
 .projects-container {
+    padding: 1rem;
     background-color: lightsalmon;
     display: grid;
     align-content: start;
     gap: 0.8rem;
 }
 
-.projects-wrapper ul {
+.projects-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-auto-rows: min-content;
+    gap: 0.8rem;
+}
+
+.project {
+    padding: 1rem .8rem;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    gap: 0.8rem;
+}
+
+.project-options {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    justify-content: end;
     gap: 0.8rem;
 }
 
 aside {
+    padding: 1rem;
     background-color: lightgreen;
+    
     display: grid;
     align-content: start;
-    gap: 0.8rem;
+    gap: 1rem;
 }
 
 aside > div > ul {
@@ -393,3 +412,25 @@ aside > div > ul {
     align-content: start;
     gap: 0.8rem;
 }
+
+.trends-wrapper ul li {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+        "users-photo users-name"
+        "users-photo description";
+}
+
+.users-photo {
+    grid-area: users-photo;
+}
+
+.users-name {
+    grid-area: users-name;
+}
+
+.trends-wrapper li p {
+    grid-area: description;
+}
+
