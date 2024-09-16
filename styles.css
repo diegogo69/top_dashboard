@@ -222,30 +222,34 @@ ul {
     list-style: none;
 }
 
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
 body {
     --primary-color: hsl(108, 77%, 52%);
     --highlight-color: hsl(54, 100%, 55%);
     --bg-color: #e2e8f0;
     --shadow-color: #94a3b8;
     --light-color: #f8fafc;
-    --dark-color: #020617;
+    --dark-color: hsl(229, 90%, 13%);
     
     height: 100vh;
     display: grid;
-    grid-template-columns: minmax(min-content, 20vw) 4fr;
-    grid-template-rows: 20vh 1fr;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 2fr 5fr;
     grid-template-areas: 
     "nav header"
     "nav main";
     
     background-color: var(--bg-color);
-}
-
-.primary-navigation a {
-    display:block;
-    text-decoration: none;
-    color: inherit;
-    /* font: inherit; */
+    color: var(--dark-color);
 }
 
 nav.primary-navigation {
@@ -266,6 +270,13 @@ nav.primary-navigation {
 .primary-navigation svg {
     fill: var(--light-color);
     width: 1.6rem;
+}
+
+.primary-navigation a {
+    display:block;
+    text-decoration: none;
+    color: inherit;
+    /* font: inherit; */
 }
 
 .primary-navigation > ul {
@@ -307,12 +318,7 @@ header {
     gap: 1rem;
 
     background-color: var(--light-color);
-    color: var(--dark-color);
     box-shadow: 0px 0px 6px 0px var(--shadow-color);
-}
-
-header svg {
-    fill: var(--dark-color);
 }
 
 header .search {
@@ -326,6 +332,7 @@ header .search {
 svg {
     width: 1.5rem;
     vertical-align: -.3rem;
+    fill: var(--dark-color);
 }
 
 header input[type="search"] {
@@ -381,6 +388,7 @@ header .options-container {
 .user-greeting p {
     grid-area: user-greet;
     align-items: end;
+    font-size: 1em;
 }
 
 .user-greeting h2 { 
@@ -400,13 +408,15 @@ header .options-container {
 .options button {
     width: 8rem;
     height: 3rem;
-    padding: .2rem 1rem;
     text-align: center;
+    padding: .2rem 1rem;
     border-radius: 2rem;
 
     background-color: var(--primary-color);
     border: none;
     color: var(--light-color);
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 main {
@@ -499,6 +509,7 @@ aside > ul {
 .users-name {
     grid-area: users-name;
     align-self: end;
+    font-weight: 700;
 }
 
 .trends-wrapper li p {
