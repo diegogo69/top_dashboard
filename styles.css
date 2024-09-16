@@ -240,15 +240,16 @@ body > nav {
     padding: 1rem;
 
     display: grid;
-    /* grid-template-columns: 1fr; */
+    grid-template-rows: repeat(auto-fill, min-content);
     align-content: start;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 body > nav > * {
     display: grid;
-    grid-auto-rows: 2rem;
+    grid-template-rows: repeat(auto-fill, min-content);
     align-items: center;
+    gap: .8rem;
 }
 
 header {
@@ -333,16 +334,16 @@ header .options-container {
     grid-area: user-greet;
 }
 
-.user-greeting .h2 {
+.user-greeting .h2 { 
     grid-area: username;
 }
 
 .options {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    gap: 2rem;
-    justify-items: end;    
+    grid-auto-columns: min-content;
+    gap: 1rem;
+    justify-content: end;    
     align-items: center;
 }
 
@@ -355,6 +356,8 @@ header .options-container {
     border-radius: 2rem;
     border: 3px solid blue;
 }
+
+
 
 main {
     grid-area: main;
