@@ -223,26 +223,40 @@ ul {
 }
 
 body {
-    --white: #f8fafc;
-
+    --primary-color: hsl(108, 77%, 52%);
+    --highlight-color: hsl(54, 100%, 55%);
+    --bg-color: #e2e8f0;
+    --shadow-color: #94a3b8;
+    --light-color: #f8fafc;
+    --dark-color: #020617;
+    
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-columns: 20vw 4fr;
+    grid-template-rows: 20vh 1fr;
     grid-template-areas: 
-        "nav header"
-        "nav main";
+    "nav header"
+    "nav main";
+    
+    background-color: var(--bg-color);
 }
 
 body > nav {
     grid-area: nav;
-    background-color: hsl(202, 88%, 54%);
     padding: 1rem;
 
     display: grid;
     grid-template-rows: repeat(auto-fill, min-content);
     align-content: start;
     gap: 2rem;
+
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    z-index: 1;
+}
+
+body > nav svg {
+    fill: var(--light-color)
 }
 
 body > nav > * {
@@ -261,10 +275,17 @@ header {
     grid-template-columns: [start]1fr max-content[end];
     grid-template-rows: 1fr 3fr;
     gap: 1rem;
+
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    box-shadow: 0px 0px 6px 0px var(--shadow-color);
+}
+
+header svg {
+    fill: var(--dark-color);
 }
 
 header .search {
-    padding: .4rem;
     display: grid;
     grid-template-columns: min-content 1fr;
     /* justify-content: start; */
@@ -276,16 +297,13 @@ svg {
     width: 1.5rem;
     vertical-align: -.3rem;
 }
-/* 
-header .search svg {
-    width: 1.5rem;
-} */
 
 header input[type="search"] {
     padding: 0.4rem;
     border-radius: 1rem;
     border: none;
 
+    background-color: var(--bg-color);
 }
 
 header input[type="search"]:focus-visible {
@@ -294,8 +312,7 @@ header input[type="search"]:focus-visible {
     box-shadow: inset 1px 1px 5px #e2e8f0;
 }
 
-header .account-wrapper ul {
-    padding: .4rem;
+header .account-wrapper {
     display: grid;
     grid-template-columns: repeat(3, max-content);
     gap: 1rem;
@@ -315,27 +332,30 @@ header .options-container {
 .user-greeting {
     display: grid;
     grid-template-columns: min-content 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: min-content 2fr;
     grid-template-areas:
         "user-photo user-greet"
         "user-photo username";
     align-items: center;
-    column-gap: 1rem;
+    column-gap: .8rem;
 }
 
 .user-greeting .user-photo {
     grid-area: user-photo;
     width: 4rem;
-    border: 3px solid red;
+    border: 3px solid var(--highlight-color);
     border-radius: 50%;
+    align-self: center;
 }
 
-.user-greeting .p {
+.user-greeting p {
     grid-area: user-greet;
+    align-items: end;
 }
 
-.user-greeting .h2 { 
+.user-greeting h2 { 
     grid-area: username;
+    align-self: start;
 }
 
 .options {
@@ -351,24 +371,24 @@ header .options-container {
     width: 8rem;
     height: 3rem;
     padding: .2rem 1rem;
-    background-color: lightblue;
     text-align: center;
     border-radius: 2rem;
-    border: 3px solid blue;
+
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--light-color);
 }
 
 main {
     grid-area: main;
-    background-color: red;
     padding: 1rem;
 
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 5fr 2fr;
 }
 
 .projects-container {
     padding: 1rem;
-    background-color: lightsalmon;
     display: grid;
     align-content: start;
     gap: 0.8rem;
@@ -378,7 +398,7 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-auto-rows: min-content;
-    gap: 0.8rem;
+    gap: 2rem 1.2rem;
 }
 
 .project {
@@ -388,6 +408,11 @@ main {
 
     display: grid;
     gap: 0.8rem;
+
+    background-color: var(--light-color);
+    border-left: 5px solid var(--highlight-color);
+    border-radius: 1rem;
+    box-shadow: 3px 3px 8px 0px var(--shadow-color);
 }
 
 .project-options {
@@ -400,37 +425,54 @@ main {
 
 aside {
     padding: 1rem;
-    background-color: lightgreen;
     
     display: grid;
     align-content: start;
-    gap: 1rem;
 }
 
-aside > div > ul {
+aside > ul {
     display: grid;
     align-content: start;
     gap: 0.8rem;
+    margin: 0.4rem 0 1rem 0;
+
+    background-color: var(--light-color);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 8px 0px var(--shadow-color);
+    padding: 1rem;
 }
 
-.trends-wrapper ul li {
+.annoucements-wrapper li + li {
+    padding: 0.8rem 0 0 0;
+    border-top: 2px solid var(--shadow-color);
+}
+
+.trends-wrapper li {
     display: grid;
     grid-template-columns: max-content 1fr;
     grid-template-rows: min-content 1fr;
     grid-template-areas:
         "users-photo users-name"
         "users-photo description";
+    column-gap: .8rem;
 }
 
 .users-photo {
+    border: 3px solid var(--highlight-color);
+    width: 3rem;
+    border-radius: 50%;
+    padding: .1rem;
     grid-area: users-photo;
+    align-self: center;
 }
 
 .users-name {
     grid-area: users-name;
+    align-self: end;
 }
 
 .trends-wrapper li p {
     grid-area: description;
+    align-self: start;
 }
 
