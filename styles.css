@@ -235,6 +235,10 @@ h3 {
     font-weight: 700;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     --primary-color: #49dc18;
     --highlight-color: #ffe81a;
@@ -409,6 +413,8 @@ header .options-container {
     align-self: start;
 }
 
+
+
 .options {
     display: grid;
     grid-auto-flow: column;
@@ -465,7 +471,8 @@ main {
 
     display: grid;
     gap: 0.8rem;
-    align-items: start;
+    align-content: start;
+    grid-template-rows: min-content 1fr min-content;
 
     background-color: var(--light-color);
     border-left: 5px solid var(--highlight-color);
