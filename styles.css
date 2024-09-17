@@ -242,7 +242,7 @@ a {
 body {
     --primary-color: #49dc18;
     --highlight-color: #ffe81a;
-    --bg-color: #e2e8f0;
+    --bg-color: hsl(214, 32%, 91%);
     --shadow-color: #94a3b8;
     --light-color: #f8fafc;
     --dark-color: #030e3f;
@@ -418,23 +418,29 @@ header .options-container {
 .options {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: min-content;
-    gap: 1rem;
+    /* grid-template-columns: repeat(auto-fit, minmax(5rem, 8rem)); */
+
+    gap: 1.4vw;
     justify-content: end;    
     align-items: center;
 }
 
+.options {
+    height: 100%;
+}
+
 .options button {
-    width: 8rem;
-    height: 3rem;
+    width: clamp(4rem, 3.5rem + 3.5vw, 8rem);
+    height: clamp(2rem, 1.8rem + 1.5vw, 3rem);
     text-align: center;
-    padding: .2rem 1rem;
-    border-radius: 2rem;
+    /* padding: .2rem 1rem; */
+    padding: 3%;
+    border-radius: 3vw;
 
     background-color: var(--primary-color);
     border: none;
     color: var(--light-color);
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 0.5rem + 0.5vw, 1rem);
     font-weight: 700;
 }
 
@@ -496,6 +502,11 @@ main {
 
 .project-options li {
     cursor: pointer;
+    padding: .1rem;
+}
+
+.project-options li:hover {
+    background-color: hsl(210, 40%, 95%);
 }
 
 .star svg {
